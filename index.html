@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Space Invaders</title>
+        <link rel="stylesheet" type="text/css" href="css/core.css">
+        <link rel="stylesheet" type="text/css" href="css/typeography.css">
+
+        <!-- Leapmotion Stuff -->
+        <!-- <script src="http://js.leapmotion.com/leap-0.4.1.js"></script> -->
+        <!-- Add local version -->
+
+        <script src = "js/leap.js"></script>
+
+        <style>
+    
+            /* Styling needed for a fullscreen canvas and no scrollbars. */
+            
+
+            body, html { 
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            }
+
+            #starfield {
+                width:100%;
+                height:100%;
+                z-index: -1;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+
+            }
+            #gamecontainer {
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                border: solid 10px white ;
+                margin-top:3%;
+                background-color: rgba(200, 255, 200, 0.3);
+
+            }
+            #gamecanvas { 
+                width: 800px;
+                height: 600px;
+
+            }
+            #info {
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .invisible {
+                display: none;
+            }
+
+            .pbjleft {
+                float: left;
+            }
+
+            .pbjright {
+                float: right;
+            }
+
+            .rules {
+                width: 15%;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 55%;
+                margin-left: 2%;
+                border-radius: 5px;
+                float: left;
+                position: absolute;
+                margin-top: 19%;
+                text-align: center;
+                color: black;
+                font-family: Century Gothic;
+            }
+
+             .credits {
+                width: 15%;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 55%;
+                margin-right: 2%;
+                margin-left: 84%;
+                border-radius: 5px;
+                position: absolute;
+                margin-top: 19%;
+                text-align: center;
+                color: black;
+                font-family: Century Gothic;
+
+            }
+
+            .title {
+                text-align: center;
+                font-size: 500%;
+                color: white;
+                margin-top: 3%;
+            }
+        </style>
+    </head>
+    <body>
+        <img class = "pbjleft" src="img/pbj.gif">
+        <img class = "pbjright" src="img/pbj.gif">
+
+        <div class = "title"> Space Leap Invaders </div>
+
+        <div class = "rules">
+            <h2> How to play: </h2>
+            <img src="img/leap_enabled.jpg" width = "60%">
+            <h4> Wave hands over leap horizontally and pretend to tap air with pointer finger </h4>
+            
+            <h2> OR </h2> 
+
+            <h4> WASD and Space Bar </h4>
+
+            <h2> OR </h2> 
+            
+            <h4> A combination of both </h4>    
+
+        </div>    
+
+
+        <div class = "credits">
+            <h2> Credits: </h2>
+
+            <h4> Original Code: </h4>
+            <h6> <a href="https://github.com/dwmkerr/spaceinvaders"> https://github.com/dwmkerr </a> </h6>
+
+            <h4> Song Credits: </h4>
+            <h6> <a href="http://www.youtube.com/watch?v=WlEXKiY2bho"> Unicorn Kid 8Bytes </a> </h6>
+
+            <h4> Motivation Credits: </h4>
+            <h6> <a href="http://www.pennapps.com"> PennApps </a> and <a href="http://www.leapmotion.com"> Leapmotion </a> </h6>
+
+             <h4> Image Credits: </h4>
+            <h6> Sprite Sheet: <a href = "http://fontvir.us/x/invaders.gif"> Fontvir </a> 
+             Peanut Butter Jelly Time: <a href = "http://knowyourmeme.com/memes/peanut-butter-jelly-time"> GIF </a> </h6>
+
+             <h5> Created by </h5>  <h4> Aakash Adesara </h4>
+        </div>    
+
+
+
+        <div id="starfield"></div>
+        <div id="gamecontainer">
+        <canvas id="gameCanvas"></canvas>
+        <img id="ship" src="img/ship.png" class = "invisible"/>
+        <img id="monster11" src="img/monster11.png" class = "invisible"/>
+        <img id="monster12" src="img/monster12.png" class = "invisible" />
+        <img id="monster21" src="img/monster21.png" class = "invisible"/>
+        <img id="monster22" src="img/monster22.png" class = "invisible" />
+        </div>
+        <div id="info">
+            
+            <!-- PUT INFO HERE -->
+                
+                
+        </div>
+
+        <script src="js/starfield.js"></script>
+        <script src="js/spaceinvaders.js"></script>
+        <script>
+
+
+
+
+            //  Create the starfield.
+            var container = document.getElementById('starfield');
+            var starfield = new Starfield();
+            starfield.initialise(container);
+            starfield.start();
+
+            //  Setup the canvas.
+            var canvas = document.getElementById("gameCanvas");
+            canvas.width = 800;
+            canvas.height = 600;
+
+            //  Create the game.
+            var game = new Game();
+
+            //  Initialise it with the game canvas.
+            game.initialise(canvas);
+
+            //  Start the game.
+            game.start();
+
+            //  Listen for keyboard events.
+            window.addEventListener("keydown", function keydown(e) {
+                var keycode = e.which || window.event.keycode;
+                //  Supress further processing of left/right/space (37/29/32)
+                if(keycode == 37 || keycode == 39 || keycode == 32) {
+                    e.preventDefault();
+                }
+                game.keyDown(keycode);
+            });
+            window.addEventListener("keyup", function keydown(e) {
+                var keycode = e.which || window.event.keycode;
+                game.keyUp(keycode);
+            });
+
+            function toggleMute() {
+                game.mute();
+                document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
+            }
+        </script>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41728580-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+</html>
