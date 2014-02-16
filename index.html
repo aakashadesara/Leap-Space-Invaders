@@ -11,6 +11,13 @@
 
         <script src = "js/leap.js"></script>
 
+<<<<<<< HEAD
+=======
+        <link rel="icon" 
+          type="image/png" 
+          href="favicon.ico">
+
+>>>>>>> d59f4388db9f89cded6aa6fc33c29463b06ac358
         <style>
     
             /* Styling needed for a fullscreen canvas and no scrollbars. */
@@ -100,6 +107,35 @@
                 color: white;
                 margin-top: 3%;
             }
+<<<<<<< HEAD
+=======
+
+            #loadingPageCover {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index:99;
+                background-color: black;
+            }
+
+            .centeredImage {
+                margin: auto;
+                height: 200px;
+                width: 200px;
+                margin-top:18%;
+            }
+
+            .centeredImage > img {
+                width:100%; 
+            }
+
+            #parent {
+
+            }
+
+>>>>>>> d59f4388db9f89cded6aa6fc33c29463b06ac358
         </style>
     </head>
     <body>
@@ -108,6 +144,19 @@
 
         <div class = "title"> Space Leap Invaders </div>
 
+<<<<<<< HEAD
+=======
+        <!-- Loading page -->
+        <div id = "parent">
+            <div id="loadingPageCover">
+                <div class="centeredImage">
+                    <img src="loading.gif">
+                </div>
+            </div>    
+        </div> 
+
+
+>>>>>>> d59f4388db9f89cded6aa6fc33c29463b06ac358
         <div class = "rules">
             <h2> How to play: </h2>
             <img src="img/leap_enabled.jpg" width = "60%">
@@ -220,5 +269,23 @@
   })();
 
 </script>
+<<<<<<< HEAD
+=======
+
+<script type="text/javascript">
+
+            
+        var child = document.getElementById("loadingPageCover");
+        var parent = document.getElementById("parent");    
+
+        child.addEventListener('click', function() { /* do stuff here*/ 
+            parent.removeChild(child);    
+
+        }, false);
+
+
+
+</script>
+>>>>>>> d59f4388db9f89cded6aa6fc33c29463b06ac358
     </body>
 </html>

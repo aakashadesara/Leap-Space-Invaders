@@ -23,9 +23,26 @@
 
 //  Creates an instance of the Game class.
 var controller;
+<<<<<<< HEAD
 var audio = new Audio('audio.mp3');
 
 
+=======
+var bit = new Audio('sounds/bit.mp3');
+var chocolate = new Audio('sounds/chocolate.mp3');//
+var fox = new Audio('sounds/fox.mp3'); //
+var jackson = new Audio('sounds/jackson.mp3'); //
+var dawn = new Audio('sounds/dawn.mp3'); //
+var skyrim = new Audio('sounds/skyrim.mp3'); //
+var countdown = new Audio('sounds/countdown.mp3'); //
+var gangnam = new Audio('sounds/gangnam.mp3'); //
+
+
+var array = [ bit, chocolate, fox, jackson, dawn, skyrim, countdown, gangnam];
+
+var audio = array[Math.floor(Math.random() * array.length + 1)];
+
+>>>>>>> d59f4388db9f89cded6aa6fc33c29463b06ac358
 function Game() {
 
 
