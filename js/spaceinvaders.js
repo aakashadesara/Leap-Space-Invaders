@@ -23,7 +23,15 @@
 
 //  Creates an instance of the Game class.
 var controller;
+
 var bit = new Audio('sounds/audio.mp3');
+
+var audio = new Audio('audio.mp3');
+
+
+
+var bit = new Audio('sounds/bit.mp3');
+
 var chocolate = new Audio('sounds/chocolate.mp3');//
 var fox = new Audio('sounds/fox.mp3'); //
 var jackson = new Audio('sounds/jackson.mp3'); //
@@ -37,8 +45,11 @@ var array = [ bit, chocolate, fox, jackson, dawn, skyrim, countdown, gangnam];
 
 var audio = array[Math.floor(Math.random() * array.length + 1)];
 
+
 audio.loop = true;
 audio.play();
+
+function Game() {
 
 function Game() {
 
