@@ -65,9 +65,57 @@
                 float: left;
             }
 
-            .pbjright {
-                float: right;
+            .leapenabledImage {
+                border: 10px solid white;
+                border-radius: 3px;
             }
+
+
+            .leapenabledImage:hover {
+                border: 2px solid white;
+                border-radius: 1px;
+                box-shadow: 0 0 10px blue;
+            }
+
+            .pbjright {
+                outline: 0;
+                float: right;
+                margin-top: 4%;
+                margin-right: 1.5%;
+                border: none;
+                height: 30%;
+                padding: 4%;
+                font-family: Arial;
+                color: white;
+                font-size: 160%;
+                border-radius: 7px;
+                background-color: rgba(255, 40, 40, 0.5);
+                border: 7px solid white;
+                box-shadow: 0 0 70px white;
+
+
+            }
+
+            .pbjright img {
+                height: 80px;
+            }
+
+            .pbjright:hover {
+                outline: 0;
+                color: rgba(255, 40, 40, 0.6);
+                background-color: rgba(255, 40, 40, .9);
+                border: 7px solid rgba(255, 40, 40, 1);
+                box-shadow: 0 0 70px rgba(255, 40, 40, 1);
+            }
+
+            .pbjright:active {
+               
+                color: rgba(255, 40, 40, 0.6);
+                background-color: rgba(255, 40, 40, 0.7);;
+                border: 7px solid rgba(255, 40, 40, 0.7);
+
+            }
+
 
             .rules {
                 width: 15%;
@@ -134,9 +182,11 @@
     </head>
     <body>
         <img class = "pbjleft" src="img/pbj.gif">
-        <img class = "pbjright" src="img/pbj.gif">
+        <button id = "shuffleButton" onClick="shuffle();" class = "pbjright"> <img src="img/shuffleWhite.png"> </button>
+
 
         <div class = "title"> Space Leap Invaders </div>
+
 
         <!-- Loading page -->
         <div id = "parent">
@@ -150,7 +200,9 @@
 
         <div class = "rules">
             <h2> How to play: </h2>
-            <img src="img/leap_enabled.jpg" width = "60%">
+            <a href = "http://www.leapmotion.com">
+                <img src="img/leap_enabled.jpg"class = "leapenabledImage" width = "60%">
+            </a>
             <h4> Wave hands over leap horizontally and pretend to tap air with pointer finger </h4>
             
             <h2> OR </h2> 
@@ -168,10 +220,7 @@
             <h2> Credits: </h2>
 
             <h4> Original Code: </h4>
-            <h6> <a href="https://github.com/dwmkerr/spaceinvaders"> https://github.com/dwmkerr </a> </h6>
-
-            <h4> Song Credits: </h4>
-            <h6> <a href="http://www.youtube.com/watch?v=WlEXKiY2bho"> Unicorn Kid 8Bytes </a> </h6>
+            <h6> <a href="http://bit.ly/1f2RyK9"> http://bit.ly/1f2RyK9 </a> </h6>
 
             <h4> Motivation Credits: </h4>
             <h6> <a href="http://www.pennapps.com"> PennApps </a> and <a href="http://www.leapmotion.com"> Leapmotion </a> </h6>

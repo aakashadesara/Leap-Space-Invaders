@@ -23,7 +23,7 @@
 
 //  Creates an instance of the Game class.
 var controller;
-var bit = new Audio('sounds/bit.mp3');
+var bit = new Audio('sounds/audio.mp3');
 var chocolate = new Audio('sounds/chocolate.mp3');//
 var fox = new Audio('sounds/fox.mp3'); //
 var jackson = new Audio('sounds/jackson.mp3'); //
@@ -37,8 +37,10 @@ var array = [ bit, chocolate, fox, jackson, dawn, skyrim, countdown, gangnam];
 
 var audio = array[Math.floor(Math.random() * array.length + 1)];
 
-function Game() {
+audio.loop = true;
+audio.play();
 
+function Game() {
 
     var gameCanvasgameCanvas = document.getElementById('gameCanvas');
 
@@ -94,7 +96,7 @@ function Game() {
         invaderRanks: 5,
         invaderFiles: 10,
         shipSpeed: 120,
-        levelDifficultyMultiplier: .4,
+        levelDifficultyMultiplier: .3,
         pointsPerInvader: 5
     };
 
@@ -173,8 +175,7 @@ Game.prototype.start = function() {
     // Connects the leap controller
     controller.connect();
 
-    audio.loop = true;
-    audio.play();
+   
 
 
 };
@@ -929,3 +930,16 @@ Sounds.prototype.playSound = function(name) {
     source.connect(this.audioContext.destination);
     source.start(0);
 };
+
+function shuffle(){
+    audio.pause();
+    audio = array[Math.floor(Math.random() * array.length + 1)];    
+    audio.play();
+
+}
+
+
+
+
+
+
