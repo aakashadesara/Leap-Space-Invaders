@@ -6,10 +6,6 @@ Where: PennApps 2014 Valentines Day <br>
 When: February 14th, 2014 - February 16th 2014 <br> 
 Technologies: LeapMotion SDK, JavaScript, HTML, CSS <br>
 
-Credits: <br> 
-<h4> Original Code: </h4>
-<h6> <a href="https://github.com/dwmkerr/spaceinvaders"> https://github.com/dwmkerr </a> </h6>
-
 <h4> Song Credits: </h4>
 <h6> <a href="http://www.youtube.com/watch?v=WlEXKiY2bho"> Unicorn Kid 8Bytes </a> </h6>
 
